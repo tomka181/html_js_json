@@ -17,7 +17,7 @@ $(".btn_page_switch").on('click', function(event){
         var contentData = JSON.parse(ourRequest.responseText);
         var pageData    = contentData[requestedPage];
         // render page content
-        renderHTML(pageData);
+        renderHTML(pageData, requestedPage);
     };
     ourRequest.send();
 
@@ -25,9 +25,13 @@ $(".btn_page_switch").on('click', function(event){
 
 //-----------------------------------------------------------------------------------
 // render page content
-function renderHTML(data){
+function renderHTML(data, title){
     console.log(data);
 
+    // change page title
+    document.title = title;
+
+    // loop page content object
     for (var element_id in data) {
         console.log('--------------------');
         console.log(element_id);
@@ -39,6 +43,8 @@ function renderHTML(data){
 
             for (var sub_element_name in data[element_id]){
                 console.log(sub_element_name);
+
+                //getElementsByTagName
             }
 
         }
