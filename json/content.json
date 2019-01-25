@@ -1,0 +1,43 @@
+{
+    "page01": {
+        "header": {
+            "h1": "title of page 01",
+            "h2": "subtitle of page 01"
+        },
+        "section-info": {
+            "info-box-left":    "infobox left page 01",
+            "info-box-right":   "infobox right page 01"
+        },
+        "section-footer": {
+            "some-other-stuff": "other stuff of poage 01 in the footer section..."
+        }    
+    },
+    "page02": {
+        "header": {
+            "h1": "title of page 02",
+            "h2": "subtitle of page 02"
+        },
+        "section-info": {
+            "info-box-left":    "infobox left page 02",
+            "info-box-right":   "infobox right page 02"
+        },
+        "section-footer": {
+            "some-other-stuff": "other stuff of poage 02 in the footer section..."
+        }
+        
+    },
+    "page03": {
+        "header": {
+            "h1": "title of page 03",
+            "h2": "subtitle of page 03"
+        },
+        "section-info": {
+            "info-box-left":    "infobox left page 03",
+            "info-box-right":   "infobox right page 03"
+        },
+        "section-footer": {
+            "some-other-stuff": "other stuff of poage 03 in the footer section..."
+        }
+        
+    }
+}
