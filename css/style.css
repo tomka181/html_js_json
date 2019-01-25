@@ -15,4 +15,6 @@ section {
     background-color:rgba(0,95,132,.753);
 }
 
-    
+.hide {
+    display: none;
+}
