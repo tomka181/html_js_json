@@ -22,7 +22,7 @@ function templateTeam(dataTeam) { return`
     ${dataTeam['members'].map(function(member){ return `
     <div class="col-sm-12 col-md-${12 / dataTeam['members'].length} mb-box">                
         <div class="info-box">
-            <img src="${member.img}">
+            <img src="${member.img}" alt="${member.img}">
             <h1>${member.name}</h1>
             <p>${member.function}</p>
         </div>
@@ -53,7 +53,6 @@ var dictSnippets = {
 // return a snippet with replaced content
 function getTemplate(key, content){
     try{
-        console.log(content)
         var snippet = dictSnippets[key](content);
         return snippet;
     }
