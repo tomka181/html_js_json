@@ -1,31 +1,4 @@
 {
-    "startpage" :{
-        "target-section" : {
-            "snippet": "target-selection",
-            "content": {
-                "targets" :[
-                    {
-                        "img" : "pic01.jpg", 
-                        "target" : "page01",
-                        "description": "go to page01"
-                    },
-                    {
-                        "img" : "pic02.jpg", 
-                        "target" : "page02",
-                        "description": "go to page02"
-                    },
-                    {
-                        "img" : "pic03.jpg", 
-                        "target" : "page03",
-                        "description": "go to page03"
-                    }
-
-                ],
-                "title": "Hit a picture..."
-            }
-        }
-    },
-    
     "page01": {
         "header": {
             "snippet": "header",
