@@ -13,6 +13,16 @@
                 "info-box": ["infobox left page 01", "infobox right page 01"]
             }
         },
+        "team": {
+            "snippet": "team",
+            "content": {
+                "members" : [
+                    { "name": "Peter Lustig",    "img": "face01.jpg", "function": "The funny guy" },
+                    { "name": "Gundel Gaukeley", "img": "face02.jpg", "function": "witch" },
+                    { "name": "Mac Moneysac",    "img": "face03.jpg", "function": "The old dirty bastard" }
+                ]
+            }      
+        },
         "footer": {
             "snippet": "footer",
             "content" :{
