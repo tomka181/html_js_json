@@ -4,9 +4,20 @@ var pageContent     = document.getElementById('page-content');
 var btn_page_switch = document.getElementsByClassName('btn_page_switch');
 
 //-----------------------------------------------------------------------------------
+// load starting page first
+
+/*var contentData  = JSON.parse('{"startpage" :{ "target-section" : { "snippet": "target-selection" }}}');
+var jsonPageData = contentData["startpage"];
+// render page content
+renderPage(jsonPageData, "Start");
+*/
+
+
+//-----------------------------------------------------------------------------------
 // event on page switch button
 $(".btn_page_switch").on('click', function(event){
     // get page request
+    console.log('pressed button');
     var requestedPage = $(this).val();
     
     // handle AJAX request
@@ -14,8 +25,8 @@ $(".btn_page_switch").on('click', function(event){
     request.open('GET', contentJsonFile);
     request.setRequestHeader('Cache-Control', 'no-cache');
     request.onload = function() {
-        var contentData = JSON.parse(request.responseText);
-        var jsonPageData    = contentData[requestedPage];
+        var contentData  = JSON.parse(request.responseText);
+        var jsonPageData = contentData[requestedPage];
         // render page content
         renderPage(jsonPageData, requestedPage);
     };
@@ -30,25 +41,25 @@ function renderPage(jsonPageData, title){
     //-----------------------------------------------------------------------------------
     // remove all not mentioned section
     var sections = document.getElementsByTagName("section");
-    var amoungSections = sections.length;
+    var amountSections = sections.length;
     
-    for (idxAmountSection = 0; idxAmountSection < amoungSections; idxAmountSection++) {
+    for (idxSection = 0; idxSection < amountSections; idxSection++) {
 
         // first hide all sections...
-        $(sections[idxAmountSection]).addClass("hide");
+        $(sections[idxSection]).addClass("hide");
         
         // figure out if section is mentioned in json file...
-        var sectionId = sections[idxAmountSection].id;
+        var sectionId = sections[idxSection].id;
         for (var jsonSectionElementId in jsonPageData) {
             try {
                 var n = sectionId.indexOf(jsonSectionElementId);
                 if (n >= 0) {
                     // revoke hidden section
-                    $(sections[idxAmountSection]).removeClass("hide");
+                    $(sections[idxSection]).removeClass("hide");
                 }
             }
             catch (e){
-                //console.error(e); // ...to fucking tired!
+                //console.error(e); // ...too fucking tired!
             }
         }
     }
@@ -58,12 +69,19 @@ function renderPage(jsonPageData, title){
     document.title = title;
 
     //-----------------------------------------------------------------------------------
-    // loop page content object
+    // loop page setting object
     for (var sectionElementId in jsonPageData) {
         
         // get parent block or section by id
-        var jsonSectionData   = jsonPageData[sectionElementId];
-        var sectionElement     = document.getElementById(sectionElementId);
+        var sectionSnippet  = jsonPageData[sectionElementId]["snippet"];
+        console.log("sectionSnippet");
+        console.log(sectionElementId);
+        console.log(sectionSnippet);
+
+        $("#" + sectionElementId).load("snippets/" + sectionSnippet + ".txt");
+
+        var jsonSectionData = jsonPageData[sectionElementId]["content"];
+        var sectionElement  = document.getElementById(sectionElementId);
         
         if (sectionElement != null) {
             
@@ -110,15 +128,3 @@ function renderPage(jsonPageData, title){
 function isArray(jsonObject) {
     return jsonObject.constructor === Array;
 }
-
-//-----------------------------------------------------------------------------------
-function getElementsStartsWithId( id ) {
-    var children = document.body.getElementsByTagName('*');
-    var elements = [], child;
-    for (var i = 0, length = children.length; i < length; i++) {
-      child = children[i];
-      if (child.id.substr(0, id.length) == id)
-        elements.push(child);
-    }
-    return elements;
-  }

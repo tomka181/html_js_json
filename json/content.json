@@ -1,40 +1,92 @@
 {
+    "startpage" :{
+        "target-section" : {
+            "snippet": "target-selection",
+            "content": {
+                "targets" :[
+                    {
+                        "img" : "pic01.jpg", 
+                        "target" : "page01",
+                        "description": "go to page01"
+                    },
+                    {
+                        "img" : "pic02.jpg", 
+                        "target" : "page02",
+                        "description": "go to page02"
+                    },
+                    {
+                        "img" : "pic03.jpg", 
+                        "target" : "page03",
+                        "description": "go to page03"
+                    }
+
+                ],
+                "title": "Hit a picture..."
+            }
+        }
+    },
+    
     "page01": {
         "header": {
-            "h1": "title of page 01",
-            "h2": "subtitle of page 01"
+            "snippet": "header",
+            "content" :{
+                "h1": "title of page 01",
+                "h2": "subtitle of page 01"
+            }
         },
         "info": {
-            "info-box": ["infobox left page 01", "infobox right page 01"]
+            "snippet": "info",
+            "content" :{
+                "info-box": ["infobox left page 01", "infobox right page 01"]
+            }
         },
         "footer": {
-            "footer-top":       "other stuff of page 01 in the footer section...",
-            "footer-bottom":    "page01 - fin"
+            "snippet": "footer",
+            "content" :{
+                "footer-top":       "other stuff of page 01 in the footer section...",
+                "footer-bottom":    "page01 - fin"
+            }
         }    
     },
     "page02": {
         "header": {
-            "h1": "title of page 02",
-            "h2": "subtitle of page 02"
+            "snippet": "header",
+            "content" :{
+                "h1": "title of page 02",
+                "h2": "subtitle of page 02"
+            }
+
         },
         
         "footer": {
-            "footer-top":       "other stuff of page 02 in the footer section...",
-            "footer-bottom":    "page02 - fin"
+            "snippet": "footer",
+            "content" :{
+                "footer-top":       "other stuff of page 02 in the footer section...",
+                "footer-bottom":    "page02 - fin"
+            }
         }    
         
     },
     "page03": {
         "header": {
-            "h1": "title of page 03",
-            "h2": "subtitle of page 03"
+            "snippet": "header",
+            "content" :{
+                "h1": "title of page 03",
+                "h2": "subtitle of page 03"
+            }
         },
         "info": {
-            "info-box": ["infobox left page 03", "infobox right page 03" ]
+            "snippet": "info",
+            "content" :{
+                "info-box": ["infobox left page 03", "infobox right page 03" ]
+            }
         },
         "footer": {
-            "footer-top":       "other stuff of page 03 in the footer section...",
-            "footer-bottom":    "page03 - fin"
+            "snippet": "footer",
+            "content" :{
+                "footer-top":       "other stuff of page 03 in the footer section...",
+                "footer-bottom":    "page03 - fin"
+            }
         }    
         
     }
