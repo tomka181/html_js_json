@@ -4,34 +4,29 @@ var contentJsonFile      = 'json/content.json';
 //-----------------------------------------------------------------------------------
 // remove all not mentioned section
 function clearPage(jsonPageData) {
-    var sections = document.getElementsByTagName("section");
-    var amountSections = sections.length;
-    
+    var sectionElements     = document.getElementsByTagName("section");
+    var amountSections      = sectionElements.length;
+    var sectionContentKeys  = (Object.keys(jsonPageData["sections"]));
+
     for (idxSection = 0; idxSection < amountSections; idxSection++) {
 
         // first hide each section...
-        $(sections[idxSection]).addClass("hide");
+        $(sectionElements[idxSection]).addClass("hide");
         
         // figure out if section is mentioned in json file...
-        var sectionId = sections[idxSection].id;
-        for (var jsonSectionElementId in jsonPageData) {
-            try {
-                var n = sectionId.indexOf(jsonSectionElementId);
-                if (n >= 0) {
-                    // revoke hidden section
-                    $(sections[idxSection]).removeClass("hide");
-                }
-            }
-            catch (e){
-                //console.error(e); // ...too fucking tired!
-            }
+        var sectionElementId    = sectionElements[idxSection].id;
+        var searchStringSection = sectionElementId.split("-")[1];
+        
+        if (sectionContentKeys.indexOf(searchStringSection) >= 0) {
+            // revoke hidden section
+            $(sectionElements[idxSection]).removeClass("hide");
         }
     }
 }
 
 //-----------------------------------------------------------------------------------
 // render content of the requested page
-function renderPage(jsonPageData, requestedPage) {
+function renderPage(jsonPageData) {
 
     //-----------------------------------------------------------------------------------
     // clear page
@@ -39,20 +34,36 @@ function renderPage(jsonPageData, requestedPage) {
     
     //-----------------------------------------------------------------------------------
     // change page title
-    document.title = requestedPage;
+    document.title = jsonPageData.title;
+
+    //-----------------------------------------------------------------------------------
+    // set navbar
+    var navbarElement = document.getElementById("VitaNav");
+    navbarElement.innerHTML = getHtmlSnippet("navbar", {"menu" : jsonPageData["menu"], "logo": jsonPageData["logo"] });
     
     //-----------------------------------------------------------------------------------
+    // set footer
+    var navbarElement = document.getElementById("VitaNav");
+    navbarElement.innerHTML = getHtmlSnippet("navbar", {"menu" : jsonPageData["menu"], "logo": jsonPageData["logo"] });
+    
+
+    //-----------------------------------------------------------------------------------
     // get content by json file 
-    $.each(jsonPageData, function (sectionId, sectionData) {
-        var sectionContent = jsonPageData[sectionId]["content"];
-        if (sectionContent.length != 0){
+    var pageSections = jsonPageData["sections"];
+    $.each(pageSections, function (sectionId, sectionData) {
+        var sectionContent = sectionData["content"];
+        if (Object.keys(sectionContent).length != 0){
+            if (sectionId == "footer"){
+                console.log ('fooooooter');
+                sectionContent["menu"] = jsonPageData["menu"];
+            }
             try {
-                document.getElementById(sectionId).innerHTML = getTemplate(sectionId, sectionContent);
+                var targetElement = document.getElementById("section-" + sectionId);
+                targetElement.innerHTML = getHtmlSnippet(sectionId, sectionContent);            
             }
-            catch(err) {
-                $("#section-" + sectionId).addClass("hide");
+            catch (err) {
+                throw "Could not set HTML snippet for section-" + sectionId;
             }
-            
         }
     });
 }
@@ -71,7 +82,7 @@ $(".btn_page_switch").on('click', function(event){
         var contentData  = JSON.parse(request.responseText);
         var jsonPageData = contentData[requestedPage];
         // render page content
-        renderPage(jsonPageData, requestedPage);
+        renderPage(jsonPageData);
     };
     request.send();
 

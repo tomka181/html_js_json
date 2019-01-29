@@ -1,74 +1,94 @@
 {
     "page01": {
-        "header": {
-            "snippet": "header",
-            "content" :{
-                "h1": "title of page 01",
-                "h2": "subtitle of page 01"
-            }
-        },
-        "info": {
-            "snippet": "info",
-            "content" :{
-                "info-box": ["infobox left page 01", "infobox right page 01"]
-            }
-        },
-        "team": {
-            "snippet": "team",
-            "content": {
-                "members" : [
-                    { "name": "Peter Lustig",    "img": "face01.jpg", "function": "The funny guy" },
-                    { "name": "Gundel Gaukeley", "img": "face02.jpg", "function": "witch" },
-                    { "name": "Mac Moneysac",    "img": "face03.jpg", "function": "The old dirty bastard" }
-                ]
-            }      
-        },
-        "footer": {
-            "snippet": "footer",
-            "content" :{
-                "footer-top":       "other stuff of page 01 in the footer section...",
-                "footer-bottom":    "page01 - fin"
-            }
-        }    
+        "title" : "Das ist die berühmte Seite 1",
+        "logo"  : "img/img_logo-sm.png",
+        "menu": [
+            {"title": "Über uns",   "href": "#About"},
+            {"title": "Leistungen", "href": "#Leistungen"},
+            {"title": "Office",     "href": "#Office"},
+            {"title": "Das Team",   "href": "#Team"},
+            {"title": "Kontakt",    "href": "#Contact"}
+        ],
+        "meta"  : "",
+        "sections": {
+            "header": {
+                "snippet": "header",
+                "content" :{
+                    "h1": "title of page 01",
+                    "h2": "subtitle of page 01"
+                }
+            },
+            "info": {
+                "snippet": "info",
+                "content" :{
+                    "info-box": ["infobox left page 01", "infobox right page 01"]
+                }
+            },
+            "team": {
+                "snippet": "team",
+                "content": {
+                    "members" : [
+                        { "name": "Peter Lustig",    "img": "img/face01.jpg", "function": "The funny guy" },
+                        { "name": "Gundel Gaukeley", "img": "img/face02.jpg", "function": "witch" },
+                        { "name": "Mac Moneysac",    "img": "img/face03.jpg", "function": "The old dirty bastard" }
+                    ]
+                }      
+            },
+            "footer": {
+                "snippet": "footer",
+                "content" :{
+                    "footer-top":       "other stuff of page 01 in the footer section...",
+                    "footer-bottom":    "page01 - fin"
+                }
+            }    
+        }
     },
     "page02": {
-        "header": {
-            "snippet": "header",
-            "content" :{
-                "h1": "title of page 02",
-                "h2": "subtitle of page 02"
-            }
+        "title" : "Das ist die kleinere Seite 2",
+        "meta"  : "",
+        "sections": {
+            "header": {
+                "snippet": "header",
+                "content" :{
+                    "h1": "title of page 02",
+                    "h2": "subtitle of page 02"
+                }
 
-        },
-        
-        "footer": {
-            "snippet": "footer",
-            "content" :{
-                "footer-top":       "other stuff of page 02 in the footer section...",
-                "footer-bottom":    "page02 - fin"
-            }
-        }    
+            },
+            
+            "footer": {
+                "snippet": "footer",
+                "content" :{
+                    "footer-top":       "other stuff of page 02 in the footer section...",
+                    "footer-bottom":    "page02 - fin"
+                }
+            }    
+        }
         
     },
     "page03": {
-        "header": {
-            "snippet": "header",
-            "content" :{
-                "h1": "title of page 03",
-                "h2": "subtitle of page 03"
-            }
-        },
-        "info": {
-            "snippet": "info",
-            "content" :{
-                "info-box": ["infobox left page 03", "infobox right page 03" ]
-            }
-        },
-        "footer": {
-            "snippet": "footer",
-            "content" :{
-                "footer-top":       "other stuff of page 03 in the footer section...",
-                "footer-bottom":    "page03 - fin"
+        "title" : "Das ist die nicht so rühmliche Seite 3",
+        "meta"  : "",
+        "sections": {
+            "header": {
+                "snippet": "header",
+                "content" :{
+                    "h1": "title of page 03",
+                    "h2": "subtitle of page 03"
+                }
+            },
+            "info": {
+                "snippet": "info",
+                "content" :{
+                    "info-box": ["infobox left page 03", "infobox right page 03" ]
+                }
+            },
+            "footer": {
+                "snippet": "footer",
+                "content" :{
+                    "footer-top":       "other stuff of page 03 in the footer section...",
+                    "footer-bottom":    "page03 - fin"
+                }
             }
         }    
         

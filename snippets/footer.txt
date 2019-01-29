@@ -1,6 +1,0 @@
-        <div class="footer-top">
-            Top of the Flops. LOADED
-        </div>
-        <div class="footer-bottom">
-            Finally it ends with the end. LOADED
-        </div>

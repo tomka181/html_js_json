@@ -1,2 +1,0 @@
-<h1>This is a dummy title</h1>
-<h2>This is a dummy subtitle</h2>
