@@ -33,40 +33,69 @@ function templateNavbar(dataNavbar) {return`
 
 
 function templateHeader(dataHeader) {return `
-    <div class="container" id="header">
-        <h1>${dataHeader['h1']}</h1>
-        <h2>${dataHeader['h2']}</h2>
+    <div class="banner">
+        <ul>
+            <li data-transition="slotfade-horizontal">
+                <img src="img/bg-slide-1.jpg" alt="Dr. Heck">
+                <div class="tp-caption sft title" data-x="center" data-y="200" data-speed="500" data-start="1400" data-easing="easeOutBack">
+                    Willkommen in der
+                </div>
+                <div class="tp-caption sft" data-x="center" data-y="230" data-speed="500" data-start="2000" data-easing="easeOutBack">
+                    <img src="img/img_logo-head.png" alt="Dr. Heck Logo">
+                </div>
+                <div class="tp-caption sfb" data-x="center" data-y="445" data-speed="700" data-start="2500" data-easing="esaseOutBack">
+                    <a class="btn btn-banner" href="#oeffnungszeiten">Öffnungszeiten</a>
+                </div>
+
+            </li>
+        </ul>
     </div>
+
 `};
 
 function templateInfo(dataInfo) { return`
     <div class="container" id="info">
         <div class="row">
-        ${dataInfo['info-box'].map(function(infobox){ return `
-        <div class="col-sm-12 col-md-6 mb-box">                
-            <div class="info-box">
-                ${infobox}
+            ${dataInfo['info-box'].map(function(infobox){ return `
+            <div class="col-sm-12 col-md-6 mb-box">
+                <div class="info-box">
+                    ${infobox}
+                </div>
             </div>
-        </div>
-        `}).join('')}
+            `}).join('')}
         </div>
     </div>
 `};
 
-function templateTeam(dataTeam) { return`
-    <div class="container" id="team">
-        <div class="row">
-        ${dataTeam['members'].map(function(member){ return `
-        <div class="col-sm-12 col-md-${12 / dataTeam['members'].length} mb-box">                
-            <div class="member">
-                <img src="${member.img}" alt="${member.img}">
-                <h1>${member.name}</h1>
-                <p>${member.function}</p>
-            </div>
-        </div>
-        `}).join('')}
-        </div>
+function templateCallinfo(dataCallinfo) { return`
+    <div class="text-center">
+        <h1>${dataCallinfo.h1}</h1>
+        <h2>${dataCallinfo.h2}</h2>
     </div>
+
+`}
+
+function templateTeam(dataTeam) { return`
+    <div class="headline">
+        <h1>Unsere Ärzte</h1>
+    </div>
+
+    <div class="container doc-container">
+        <div class="row">
+            ${dataTeam['members'].map(function(member){ return `
+            <div class="col-sm-12 col-md-${12 / dataTeam['members'].length}">
+                <div class="doc-box">
+                    <img src="${member.img}" alt="${member.img}">
+                    <div class="overlay">
+                        <h5>${member.title}</h5>
+                        <h4>${member.name}</h4>
+                        <h5>${member.function}</h5>
+                    </div>    
+                </div>
+            </div>
+            `}).join('')}
+        </div>
+    </div>       
 `};
 
 function templateFooter(dataFooter) {return `
@@ -77,14 +106,16 @@ function templateFooter(dataFooter) {return `
                     <img src="${dataFooter.logo}" alt="Praxis Logo" style="width:48px;height:48px;">
                     <div class="copyright">
                         <p>
-                            ${dataNavbar['menu'].map(function(item){ return `
+                            ${dataFooter['menu'].map(function(item){ return `
                             <a href="${item.href}">${item.title}</a>
                             `}).join(' | ')}    
                             <br/>
-                            <a href="privacy.html" class="topnav">DATENSCHUTZ</a> | <a href="imprint.html" class="topnav">IMPRESSUM</a>
+                            ${dataFooter['additional-menu'].map(function(item){ return `
+                            <a href="${item.href}">${item.title}</a>
+                            `}).join(' | ')}    
                         </p>
                         <p class="last">
-                            Copyright © 2018 Diabetologische Schwerpunktpraxis Düren. All rights reserved. Created by <a href="http://www.rescaledesign.de">rescale Design</a>
+                            ${dataFooter['last']}
                         </p>
                     </div>
                 </div>
@@ -101,6 +132,7 @@ var dictSnippets = {
     "header"    : templateHeader,
     "info"      : templateInfo,
     "team"      : templateTeam,
+    "callinfo"  : templateCallinfo,
     "footer"    : templateFooter
 }
 
@@ -108,15 +140,15 @@ var dictSnippets = {
 // return a snippet with replaced content
 function getHtmlSnippet(key, content){
 
-    console.log(key);
-    console.log(content);
-
+    var snippet = dictSnippets[key](content);
+    return snippet;
+    /*
     try {
         var snippet = dictSnippets[key](content);
         return snippet;
     }
     catch(err) {
         throw "No matching snippet for " + key;
-    }
+    }*/
     
 }

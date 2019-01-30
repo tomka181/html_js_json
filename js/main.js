@@ -45,7 +45,6 @@ function renderPage(jsonPageData) {
     // set footer
     var navbarElement = document.getElementById("VitaNav");
     navbarElement.innerHTML = getHtmlSnippet("navbar", {"menu" : jsonPageData["menu"], "logo": jsonPageData["logo"] });
-    
 
     //-----------------------------------------------------------------------------------
     // get content by json file 
@@ -53,10 +52,15 @@ function renderPage(jsonPageData) {
     $.each(pageSections, function (sectionId, sectionData) {
         var sectionContent = sectionData["content"];
         if (Object.keys(sectionContent).length != 0){
+            
+            //-----------------------------------------------------------------------------------
+            // add page menu top footer content
             if (sectionId == "footer"){
-                console.log ('fooooooter');
                 sectionContent["menu"] = jsonPageData["menu"];
             }
+            
+            //-----------------------------------------------------------------------------------
+            // get and set HTML content 
             try {
                 var targetElement = document.getElementById("section-" + sectionId);
                 targetElement.innerHTML = getHtmlSnippet(sectionId, sectionContent);            

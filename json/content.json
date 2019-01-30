@@ -21,7 +21,10 @@
             "info": {
                 "snippet": "info",
                 "content" :{
-                    "info-box": ["infobox left page 01", "infobox right page 01"]
+                    "info-box": [
+                        "<i class='fa fa-newspaper-o' aria-hidden='true'></i><h1>Praxisinfo</h1><p>Unsere Praxis hat Urlaub.<br/>Vom 03.12.2018 bis zum 08.12.2018 ist unsere Praxis geschlossen.</p><p><i>In dringenden Notfällen wenden Sie sich bitte an unsere Vertretung</i></p><button class='btn btn-info-box' data-toggle='modal' data-target='#modal-vertretung'>Vertretungen</button>",
+                        "<i class='fa fa-user-o' aria-hidden='true'></i><h1>Termin</h1><p><strong>Gerne können Sie unter 02421 / 1 49 20 einen Termin für eine Sprechstunde in unserer Praxis ausmachen.</strong></p><p><i>In lebendsbedrohlichen Fällen z.B. akute Bewusstlosigkeit, Druck in der Herzgegend, Lähmungserscheinungen oder Verdacht auf Knochenbrüche wählen Sie bitte die Nummer 112!</i></p>"
+                    ]
                 }
             },
             "team": {
@@ -34,11 +37,22 @@
                     ]
                 }      
             },
+            "callinfo": {
+                "snippet": "callinfo",
+                "content": {
+                    "h1": "Sie möchten einen Termin in unserer Praxis vereinbaren? Rufen Sie uns einfach an!",
+                    "h2": "<a href=\"tel:+4965175882\" class=\"link-number\">02421 / 1 49 20</a>"
+                }
+            },
             "footer": {
                 "snippet": "footer",
                 "content" :{
-                    "footer-top":       "other stuff of page 01 in the footer section...",
-                    "footer-bottom":    "page01 - fin"
+                    "logo": "img/img_logo-sm.png",
+                    "additional-menu" : [
+                        { "title": "DATENSCHUTZ", "href": "privacy.html"},
+                        { "title": "IMPRESSUM", "href": "imprint.html"}
+                    ],
+                    "last": "COPYRIGHT © 2018 DIABETOLOGISCHE SCHWERPUNKTPRAXIS DÜREN. ALL RIGHTS RESERVED. CREATED BY <a href=\"http://www.rescaledesign.de\">rescale Design</a>"
                 }
             }    
         }
