@@ -1,15 +1,18 @@
 {
+    "website": {
+        "title" : "Dr Heck",
+        "logo"  : "images/img_logo-sm.png",
+        "menu": [
+            {"title": "Über uns",   "href": "#section-about"},
+            {"title": "Leistungen", "href": "#section-leistungen"},
+            {"title": "Office",     "href": "#section-office"},
+            {"title": "Das Team",   "href": "#section-team"},
+            {"title": "Kontakt",    "href": "#section-kontakt"}
+        ],
+        "meta"  : ""
+    },
     "page01": {
         "title" : "Das ist die berühmte Seite 1",
-        "logo"  : "img/img_logo-sm.png",
-        "menu": [
-            {"title": "Über uns",   "href": "#About"},
-            {"title": "Leistungen", "href": "#Leistungen"},
-            {"title": "Office",     "href": "#Office"},
-            {"title": "Das Team",   "href": "#Team"},
-            {"title": "Kontakt",    "href": "#Contact"}
-        ],
-        "meta"  : "",
         "sections": {
             "header": {
                 "snippet": "header",
@@ -27,15 +30,45 @@
                     ]
                 }
             },
-            "team": {
-                "snippet": "team",
+            "about": {
+                "snippet": "dummy",
                 "content": {
-                    "members" : [
-                        { "name": "Peter Lustig",    "img": "img/face01.jpg", "function": "The funny guy" },
-                        { "name": "Gundel Gaukeley", "img": "img/face02.jpg", "function": "witch" },
-                        { "name": "Mac Moneysac",    "img": "img/face03.jpg", "function": "The old dirty bastard" }
-                    ]
-                }      
+                    "h5": "Ich / Du / er-sie-es",
+                    "h1": "Über uns",
+                    "h2": "Wir stellen uns dann mal vor..."
+                }
+            },
+            "leistungen": {
+                "snippet": "dummy",
+                "content": {
+                    "h5": "DMP / Mellitus 1 / Mellitus 2",
+                    "h1": "Leistungen",
+                    "h2": "Wir versüßen Ihren Diabetes..."
+                }
+            },
+            "office": {
+                "snippet": "dummy",
+                "content": {
+                    "h5": "Breifkastenfirma / Luxemburg / Panama",
+                    "h1": "Office",
+                    "h2": "Wir sind direkt um die Ecke..."
+                }
+            },
+            "team": {
+                "snippet": "dummy",
+                "content": {
+                    "h5": "A / Team",
+                    "h1": "Team",
+                    "h2": "Einer für alle... alle für einen."
+                }
+            },
+            "kontakt": {
+                "snippet": "dummy",
+                "content": {
+                    "h5": "E.T. / nach Hause / telefonieren",
+                    "h1": "Kontakt",
+                    "h2": "ring ring..."
+                }
             },
             "callinfo": {
                 "snippet": "callinfo",
@@ -44,10 +77,16 @@
                     "h2": "<a href=\"tel:+4965175882\" class=\"link-number\">02421 / 1 49 20</a>"
                 }
             },
+            "map": {
+                "snippet": "map",
+                "content": {
+                    "url": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2521.4693127396295!2d6.484037316047403!3d50.80394287952578!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47bf684e8216f4cf%3A0x9747c983732c7c51!2zU2Now7x0emVuc3RyYcOfZSAxNiwgNTIzNTEgRMO8cmVu!5e0!3m2!1sde!2sde!4v1548107108232"
+                }
+            },
             "footer": {
                 "snippet": "footer",
                 "content" :{
-                    "logo": "img/img_logo-sm.png",
+                    "logo": "images/img_logo-sm.png",
                     "additional-menu" : [
                         { "title": "DATENSCHUTZ", "href": "privacy.html"},
                         { "title": "IMPRESSUM", "href": "imprint.html"}
@@ -69,12 +108,21 @@
                 }
 
             },
-            
+            "map": {
+                "snippet": "map",
+                "content": {
+                    "url": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2521.4693127396295!2d6.484037316047403!3d50.80394287952578!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47bf684e8216f4cf%3A0x9747c983732c7c51!2zU2Now7x0emVuc3RyYcOfZSAxNiwgNTIzNTEgRMO8cmVu!5e0!3m2!1sde!2sde!4v1548107108232"
+                }
+            },
             "footer": {
                 "snippet": "footer",
                 "content" :{
-                    "footer-top":       "other stuff of page 02 in the footer section...",
-                    "footer-bottom":    "page02 - fin"
+                    "logo": "images/img_logo-sm.png",
+                    "additional-menu" : [
+                        { "title": "DATENSCHUTZ", "href": "privacy.html"},
+                        { "title": "IMPRESSUM", "href": "imprint.html"}
+                    ],
+                    "last": "COPYRIGHT © 2018 DIABETOLOGISCHE SCHWERPUNKTPRAXIS DÜREN. ALL RIGHTS RESERVED. CREATED BY <a href=\"http://www.rescaledesign.de\">rescale Design</a>"
                 }
             }    
         }
@@ -97,11 +145,21 @@
                     "info-box": ["infobox left page 03", "infobox right page 03" ]
                 }
             },
+            "map": {
+                "snippet": "map",
+                "content": {
+                    "url": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2521.4693127396295!2d6.484037316047403!3d50.80394287952578!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47bf684e8216f4cf%3A0x9747c983732c7c51!2zU2Now7x0emVuc3RyYcOfZSAxNiwgNTIzNTEgRMO8cmVu!5e0!3m2!1sde!2sde!4v1548107108232"
+                }
+            },
             "footer": {
                 "snippet": "footer",
                 "content" :{
-                    "footer-top":       "other stuff of page 03 in the footer section...",
-                    "footer-bottom":    "page03 - fin"
+                    "logo": "images/img_logo-sm.png",
+                    "additional-menu" : [
+                        { "title": "DATENSCHUTZ", "href": "privacy.html"},
+                        { "title": "IMPRESSUM", "href": "imprint.html"}
+                    ],
+                    "last": "COPYRIGHT © 2018 DIABETOLOGISCHE SCHWERPUNKTPRAXIS DÜREN. ALL RIGHTS RESERVED. CREATED BY <a href=\"http://www.rescaledesign.de\">rescale Design</a>"
                 }
             }
         }    

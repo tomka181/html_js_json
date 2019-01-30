@@ -1,0 +1,763 @@
+/*
+        Projekt : Projekt Dr. Heck
+        Modul   : rescale.less
+        Version : 0.1
+        Autor   : Dirk Schumacher & David Matthias
+*/
+
+/*===== BASES =====*/
+/*@import url("font-awesome.min.css");*/
+
+@img_path: 				'../images/';
+@img_logo-headline:     '@{img_path}img_logo-headline.png';
+
+
+/*---- COLORS ----*/
+@col-main:		#005d83;
+@col-main-trans:rgba(0, 95, 132, 0.753);
+@col-switch-bg: #005d83;
+@col-switch-txt:#fff;
+@col-link-txt:  #808080 ;
+@col-link-active:#005d83;
+@col-sec:     	#4b3d34;
+@col-body:      #fbfbfb;
+@col-headline:  #393939;
+@col-secbody:   #101010;
+@col-secline:   #bdbdbd;
+
+// Mixins
+.transform (@val) {
+    transform: @val;
+	-webkit-transform: @val;
+}
+.transition (@val, ...) {
+	transition: @val;
+	-webkit-transition: @val;
+}
+
+body {
+
+    font-family: "Open Sans";
+	position: relative;
+    background-color: @col-body;
+
+	h1, h2, h3, h4, h5, h6 {
+        line-height: 1;
+        margin-bottom: 5px;
+	}
+
+    p {
+        font-size: 20px;
+        font-weight: 300;
+        text-align: center;
+    }
+
+    h1 {
+		margin: 0 0 4px;
+    	text-transform: uppercase;
+        font-size: 38px;
+        font-weight: 300;
+        color: @col-headline;
+	}
+
+	h2 {
+		margin: 0;
+    	margin-bottom: 30px;
+        font-size: 18px;
+        font-weight: 400;
+        color: @col-secline;
+	}
+
+    h3 {
+        color: @col-headline;
+    }
+
+	h5 {
+		margin: 0;
+        font-size: 16px;
+        font-weight: 300;
+        color: @col-main;
+
+	}
+	
+	.fa, .fas {
+		font-weight: 900;
+	}
+
+   	@media (max-width: 480px) {
+
+		p {
+			font-size: 18px;
+		}
+
+		h1 {
+			font-size: 24px;
+			font-weight: 500;
+			line-height: 40px;
+
+		}
+
+    }
+
+}
+
+.headline {
+    margin: 40px 0px;
+	padding-top: 60px;
+	background: url(@img_logo-headline) center top transparent no-repeat;
+	text-align: center;
+	h2 {margin-bottom: 10px;}
+}
+
+
+/***********************************************************************************
+*  Autoscroll
+***********************************************************************************/
+#Autoscroll {
+	position: fixed;
+	right: 25px;
+	bottom: 25px;
+	margin: 0;
+	height: 48px;
+	width: 48px;
+
+	color: #fff;
+    opacity: 0;
+	
+	.transition(all 0.3s ease 0s);
+    z-index: 10000;
+	background: #636363 none repeat scroll 0 0;
+	border-radius: 50%;
+	line-height: 42px;
+	text-decoration: none;
+	font-size: 32px;
+	text-align: center;
+	outline: 0 none;
+	visibility: hidden;
+	
+	&:hover {
+		background-color: #181818;
+	}
+
+	&.on {
+		opacity: 1;
+		visibility: visible;
+	}
+}
+
+
+/***********************************************************************************
+*  Navbar
+***********************************************************************************/
+#VitaNav {
+	
+	background:rgba(255,255,255,0.5);
+	border-width: 0;
+
+	&.on_scroll {
+		background:rgba(255,255,255,1);	
+	}
+
+	.ico-burger {
+		box-shadow: 0 -5px 0 1px, 0 0 0 1px, 0 5px 0 1px;
+		content: "";
+		width: 14px;
+		display: inline-block;
+		vertical-align: super;
+	}
+
+	.navbar-brand {
+		height: 58px;
+		padding: 0px;
+		float: left;
+    	font-size: 18px;
+    	line-height: 20px;
+	}
+
+	.navbar-brand>img {
+		height: 100%;
+		padding: 5px;
+		padding-left:20px;
+		width: auto;
+	}
+
+	.navbar-toggle {
+		float: none;
+		margin: 0 0 0 15px;
+		border-color: transparent;
+		line-height: 30px;
+		padding: 15px 10px;
+		border-width: 0;
+
+		&:hover, &:focus {
+			background-color: transparent;
+		}
+	}
+
+	.sticky-right {
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		
+		.project-switch {
+			position: relative;
+			float: right;
+			padding: 10px 10px;
+			background-image: none;
+			border: 0px solid transparent;
+			border-radius: 0px;
+			line-height: 40px;
+			background-color: @col-switch-bg;
+			color: @col-switch-txt;
+
+			&:hover {
+				color: @col-link-active;
+			}
+
+			>img {
+				height: 40px;
+			}
+			>span {
+				margin: 0 10px;
+			}
+			>.ico-burger {
+				color: @col-link-active;
+			}
+		}
+
+		.ico-home {
+			text-align: center;
+			float: right;
+			line-height: 40px;
+			width: 40px;
+		}
+		.fa {
+			font-size: 20px;
+		}
+
+	}
+
+	.nav > li {
+		>a {
+			color: @col-link-txt;
+			border-bottom: 2px solid transparent;
+			font-weight:300;
+			text-transform: uppercase;
+		}
+
+		>a:hover, &.active>a {
+			text-decoration: none;
+			background-color: transparent;
+			color: @col-link-active;
+			border-color: @col-link-active;
+		}
+		>a:focus {
+			outline: none;
+		}
+	}	
+
+	@media (max-width: 768px) {
+		background:rgba(255,255,255,1);
+		
+		.navbar-brand {
+			display: none;
+		}
+
+		.nav > li {
+			>a, a:hover, &.active>a {
+				color: @col-main;
+				border:none;
+			}
+		}
+
+	}
+	
+	@media (min-width: 768px) {
+		.navbar-nav > li > a {
+			padding-top: 20px;
+			padding-bottom: 18px;
+		}
+    }
+
+}
+
+/***********************************************************************************
+*  Infoboxen
+***********************************************************************************/
+#Info  {
+	.info-box {
+		margin-left: 0;
+		margin-right: 0;
+		margin-top: -180px;
+		padding: 15px;
+		text-align: center;
+		position: relative;
+		min-height: 280px;
+		z-index: 21;
+		color: #fff;
+		background-color: @col-main-trans;
+		border: 5px solid rgba(255,255,255, 0.4);
+		-webkit-background-clip: padding-box; /* for Safari */
+    	background-clip: padding-box; /* for IE9+, Firefox 4+, Opera, Chrome */
+	}
+
+
+	@media (max-width: 991px) {
+		.mb-box {
+			padding: 0;
+		}
+
+		.info-box {
+			margin-top: 0;
+			padding:15px;
+			border:0;
+		}
+	}
+
+	.info-box p {
+		font-size: 1em;
+		margin-top:20px;
+	}
+
+	.info-box .fa {
+		font-size: 3em;
+		margin-bottom: 10px;
+		font-weight: normal;
+		color: #fff;
+	}
+
+	.info-box h1, .info-box h2 {
+		margin: 0 0 20px;
+		font-size: 28px;
+		color: #fff;
+		line-height: 30px;
+		letter-spacing: 1px;
+	}
+
+	.btn-info-box {
+		font-size: 1.3em;
+		font-weight: bold;
+		text-transform: uppercase;
+		background-color:#fff;
+		color:@col-main;
+		margin: 10px;
+		padding: 0 20px 0 20px;
+		border-radius: 0px;
+		transition: all 0.2s ease-out 0s;
+	}
+}
+
+/***********************************************************************************
+*  ProjectNav
+***********************************************************************************/
+#ProjectNav {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background-color: rgba(0, 0, 0, 0.85);
+	display: none;
+	opacity: 0;
+	overflow: auto;
+	color: #fff;
+	z-index: 1030;
+
+	.transition(opacity 0.3s);
+
+    p {
+		font-size: 18px;
+        font-weight: 500;
+    }
+
+	>.container {
+		position: relative;
+		top: 50%;
+		padding-bottom: 50px;
+		padding-top: 50px;
+
+		.transform(translateY(-50%));
+
+		@media (max-width: 767px) {
+			& {
+				top: 0;
+				.transform(translateY(0));
+			}
+    	}
+
+	}
+
+	&.in {
+		display: block;
+		opacity: 1;
+	}
+
+	h3 {
+		text-align: center;
+		margin-bottom: 20px;
+	}
+	img {
+		width: 100%;
+	}
+	a {
+		text-decoration: none;
+		font-size: 20px;
+		color: #fff;
+		display: block;
+		margin-bottom: 20px;
+		.transition(opacity 0.25s);
+
+		&:hover {
+			opacity: 0.8;
+		}
+	}
+	.close {
+		position: absolute;
+		top: 15px;
+		right: 15px;
+		color: #fff;
+		opacity: 1;
+		font-weight: 100;
+		font-size: 40px;
+		text-shadow: none;
+
+		&:hover {
+			opacity: 0.6;
+		}
+	}
+}
+
+/***********************************************************************************
+*  TEASER
+************************************************************************************/
+.bannercontainer {
+    margin-bottom: 0px;
+    padding: 0;
+    position: relative;
+    width: 100%;
+
+	.banner {
+		position: relative;
+		width: 100%;
+	}
+
+	.tp-caption {
+
+		&.title {
+			color: #fff;
+			font-family: "Roboto",Arial,sans-serif;
+            font-size: 34px;
+            font-weight: 400;
+            line-height: 36px;
+            letter-spacing: 2px;
+			text-transform: uppercase;
+            text-align: center;
+            background: transparent;
+            padding: 15px 60px 20px 60px;
+//            text-shadow: 0 2px 5px rgba(0, 0, 0, 1);
+		}
+
+		&.title2 {
+			color: #fff;
+			font-family: "Roboto",Arial,sans-serif;
+            font-size: 32px;
+            font-weight: 400;
+            line-height: 36px;
+            letter-spacing: 2px;
+			text-transform: uppercase;
+            text-align: center;
+            background: transparent;
+            padding: 15px 60px 20px 60px;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 1);
+		}
+
+		&.title3 {
+			color: #fff;
+			font-family: "Roboto",Arial,sans-serif;
+            font-size: 20px;
+            font-weight: 400;
+            font-style: italic;
+            line-height: 26px;
+            letter-spacing: 2px;
+			text-transform: uppercase;
+            text-align: center;
+            background: transparent;
+            padding: 15px 60px 20px 60px;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 1);
+		}
+
+		&.sfb {
+			font-size:3em;
+		}
+	}
+}
+
+.modal-backdrop.in {
+	display: none;
+}
+
+/***********************************************************************************
+*	BUTTONS
+************************************************************************************/
+.btn {
+	border-radius: 0;
+	.transition(all 0.2s ease-out 0s);
+}
+
+.btn-banner {
+	background-color: rgba(255,255,255,0.2);
+	border: 2px solid rgb(255, 255, 255);
+	border-radius: 0;
+    border-color: @col-main;  
+    padding: 5px 60px;
+    font-size: 36px;
+    font-weight: 200;
+    color: @col-main !important;
+
+    &:hover,
+    &:focus,
+    &:active {
+		background-color: #fff;
+		border: 2px solid rgb(255, 255, 255);
+		color: @col-main !important;
+    }
+}
+
+@media (max-width: 767px) {
+    .btn-banner {
+        padding: 5px 20px;
+        font-size: 22px;
+    }
+
+}
+
+/***********************************************************************************
+*	LEISTUNG
+************************************************************************************/
+#section-leistung{
+	margin-top:50px;
+
+	.feature-content {
+    	padding-left: 98px;
+	}
+
+	.feature-content.text-right {
+		padding-left: 0;
+		padding-right: 98px;
+		text-align: right;
+	}
+
+	.feature-content h5, .feature-content h5 a {
+		color: #616161;
+		font-size: 20px;
+	}
+
+	i.feature-icon {
+		width: 75px;
+		height: 76px;
+		background: #2976a4;
+		border-radius: 0;
+		color: #fff;
+		font-size: 40px;
+		line-height: 74px;
+		text-align: center;
+	}
+
+	.feature-content p {
+		color: #777;
+		font-size: 14px;
+		line-height: 21px;
+		margin-bottom: 0;
+		text-align: left; 
+	}
+
+	.feature-content.text-right p {
+		text-align: right;
+	}
+
+	.feature-content a {
+		font-size: 14px;
+	}
+	.feature .well {
+		border-radius: 0;
+	}
+
+	.feature ul {
+		margin-bottom: 10px;
+	}
+}
+
+/***********************************************************************************
+*	Counter
+************************************************************************************/
+#section-gray {
+    padding: 40px 0;
+    margin: 0;
+    background-color: @col-main;
+
+    .border-wrapper {
+        border-top: 1px solid #fff;
+        border-bottom: 1px solid #fff;
+        padding: 20px 0;
+    }
+
+    .img-responsive {
+    margin: 0 auto;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+}
+
+.counter {
+	margin: 40px 0;
+	color: #fff;
+	text-align: center;
+
+	i {
+		font-size: 32px;
+		line-height: 32px;
+		margin-bottom: 15px;
+	}
+
+	.counter-value {
+		font-family: "Dosis", Arial, sans-serif;
+		font-size: 48px;
+		line-height: 62px;
+		letter-spacing: 8px;
+		font-weight: 300;
+		margin-bottom: 10px;
+	}
+
+	.counter-details {
+		text-transform: uppercase;
+		font-size: 11px;
+		font-weight: 400;
+		letter-spacing: 3px;
+	}
+
+	.counter-details p {
+		font-size: 11px;
+	}
+
+
+}
+
+/***********************************************************************************
+*	Callinfo
+************************************************************************************/
+#section-callinfo {
+    margin: 0;
+	margin-top:50px;
+	padding: 0;
+	padding-top: 60px;
+	padding-bottom: 70px;
+    background-color: @col-main;
+    background: rgba(0, 0, 0, 0) linear-gradient(150deg, @col-main 15%, #2a8bad 70%, #7bd3f3 94%) repeat scroll 0 0;
+    text-align: center;
+    color: #fff;
+
+    h1 {
+        margin: 0 0 4px;
+        font-size: 24px;
+        font-weight: 300;
+        color: #fff;
+    }
+
+    h2 {
+        margin: 20px 0 4px;
+        font-size: 40px;
+        font-weight: bold;
+        color: #fff;
+    }
+
+    a {
+        color: #fff;
+    }
+
+
+}
+
+
+
+
+/***********************************************************************************
+*  GOOGLE MAP
+***********************************************************************************/
+
+#Map {
+    width: 100%;
+    height: 360px;
+    margin: 0;
+
+    > iframe {
+        width: 100%;
+        height: 100%;
+        border: 0;
+		pointer-events: none;
+    }
+
+    .mapfilter {
+    -webkit-filter: grayscale(100%);
+       -moz-filter: grayscale(100%);
+        -ms-filter: grayscale(100%);
+         -o-filter: grayscale(100%);
+            filter: grayscale(100%);
+    }
+}
+
+/***********************************************************************************
+*  FOOTER
+***********************************************************************************/
+
+#footer {
+	padding: 50px 0;
+	border-top: 1px solid #e6e6e6;
+	background-color: #E6E6E6;
+	color: #979797;
+	text-align: center;
+
+	a,h1,h2,h3,h4,h5,h6 {
+		color: @col-main;
+	}
+
+    p {
+        text-align: center;
+    }
+
+	.copyright {
+    	padding: 20px 0 0;
+		font-size: 12px;
+		letter-spacing: 1px;
+		text-transform: uppercase;
+        text-align: center;
+        font-weight: 400;
+
+		img {
+			height: 65px;
+			margin-right: 20px;
+		}
+	}
+
+ 	.last {
+		margin-bottom: 0;
+        font-size: 12px;
+        font-weight: 100;
+        line-height: 20px;
+	}
+
+
+	@media (max-width: 767px) {
+		.last {
+			margin-bottom: 20px;
+		}
+		.copyright {
+			text-align: center;
+
+			img {
+				display: block;
+				margin: 0 auto 20px;
+			}
+		}
+	}
+}

@@ -33,24 +33,25 @@ function templateNavbar(dataNavbar) {return`
 
 
 function templateHeader(dataHeader) {return `
-    <div class="banner">
-        <ul>
-            <li data-transition="slotfade-horizontal">
-                <img src="img/bg-slide-1.jpg" alt="Dr. Heck">
-                <div class="tp-caption sft title" data-x="center" data-y="200" data-speed="500" data-start="1400" data-easing="easeOutBack">
-                    Willkommen in der
-                </div>
-                <div class="tp-caption sft" data-x="center" data-y="230" data-speed="500" data-start="2000" data-easing="easeOutBack">
-                    <img src="img/img_logo-head.png" alt="Dr. Heck Logo">
-                </div>
-                <div class="tp-caption sfb" data-x="center" data-y="445" data-speed="700" data-start="2500" data-easing="esaseOutBack">
-                    <a class="btn btn-banner" href="#oeffnungszeiten">Öffnungszeiten</a>
-                </div>
-
-            </li>
-        </ul>
+    <header id="header"></header>
+    <div id="Home" class="bannercontainer">
+        <div class="banner">
+            <ul>
+                <li data-transition="slotfade-horizontal">
+                    <img src="images/bg-slide-1.jpg" alt="Dr. Heck">
+                    <div class="tp-caption sft title" data-x="center" data-y="200" data-speed="500" data-start="1400" data-easing="easeOutBack">
+                        Willkommen in der
+                    </div>
+                    <div class="tp-caption sft" data-x="center" data-y="230" data-speed="500" data-start="2000" data-easing="easeOutBack">
+                        <img src="images/img_logo-head.png" alt="Dr. Heck Logo">
+                    </div>
+                    <div class="tp-caption sfb" data-x="center" data-y="445" data-speed="700" data-start="2500" data-easing="esaseOutBack">
+                        <a class="btn btn-banner" href="#oeffnungszeiten">Öffnungszeiten</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
     </div>
-
 `};
 
 function templateInfo(dataInfo) { return`
@@ -98,6 +99,12 @@ function templateTeam(dataTeam) { return`
     </div>       
 `};
 
+function templateMap(dataMap) { return `
+<div id="Map">
+    <iframe class="mapfilter" src="${dataMap.url}" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+</div>
+`};
+
 function templateFooter(dataFooter) {return `
     <div id="footer">
         <div class="container">
@@ -125,14 +132,26 @@ function templateFooter(dataFooter) {return `
 
 `};
 
+
+function templateDummy(dataDummy) {return `
+    <div class="container">
+        <div class="headline">
+            <h5>${dataDummy.h5}</h5>
+            <h1>${dataDummy.h1}</h1>
+            <h2>${dataDummy.h2}</h2>
+        </div>
+    </div>
+
+`};
 //-----------------------------------------------------------------------------------
 // collection of snippets
 var dictSnippets = {
     "navbar"    : templateNavbar,
     "header"    : templateHeader,
     "info"      : templateInfo,
-    "team"      : templateTeam,
     "callinfo"  : templateCallinfo,
+    "dummy"     : templateDummy,
+    "map"       : templateMap,
     "footer"    : templateFooter
 }
 

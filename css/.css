@@ -1,0 +1,519 @@
+/*
+        Projekt : Projekt Dr. Heck
+        Modul   : rescale.less
+        Version : 0.1
+        Autor   : Dirk Schumacher & David Matthias
+*/
+/*===== BASES =====*/
+/*@import url("font-awesome.min.css");*/
+/*---- COLORS ----*/
+body {
+  font-family: "Open Sans";
+  position: relative;
+  background-color: #fbfbfb;
+}
+body h1,
+body h2,
+body h3,
+body h4,
+body h5,
+body h6 {
+  line-height: 1;
+  margin-bottom: 5px;
+}
+body p {
+  font-size: 20px;
+  font-weight: 300;
+  text-align: center;
+}
+body h1 {
+  margin: 0 0 10px 0;
+  font-size: 50px;
+  font-weight: 300;
+  line-height: 40px;
+  text-align: center;
+  text-transform: uppercase;
+  color: #393939;
+}
+body h2 {
+  margin: 0 0 10px 0;
+  font-size: 36px;
+  font-weight: 600;
+  line-height: 40px;
+  color: #4b3d34;
+}
+body .fa,
+body .fas {
+  font-weight: 900;
+}
+@media (max-width: 480px) {
+  body p {
+    font-size: 18px;
+  }
+  body h1 {
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 40px;
+  }
+}
+/***********************************************************************************
+*  Navbar
+***********************************************************************************/
+#VitaNav {
+  background: rgba(255, 255, 255, 0.5);
+  border-width: 0;
+}
+#VitaNav .ico-burger {
+  box-shadow: 0 -5px 0 1px, 0 0 0 1px, 0 5px 0 1px;
+  content: "";
+  width: 14px;
+  display: inline-block;
+  vertical-align: super;
+}
+#VitaNav .navbar-brand {
+  height: 58px;
+  padding: 0px;
+  float: left;
+  font-size: 18px;
+  line-height: 20px;
+}
+#VitaNav .navbar-brand > img {
+  height: 100%;
+  padding: 5px;
+  padding-left: 20px;
+  width: auto;
+}
+#VitaNav .navbar-toggle {
+  float: none;
+  margin: 0 0 0 15px;
+  border-color: transparent;
+  line-height: 30px;
+  padding: 15px 10px;
+  border-width: 0;
+}
+#VitaNav .navbar-toggle:hover,
+#VitaNav .navbar-toggle:focus {
+  background-color: transparent;
+}
+#VitaNav .sticky-right {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+}
+#VitaNav .sticky-right .project-switch {
+  position: relative;
+  float: right;
+  padding: 10px 10px;
+  background-image: none;
+  border: 0px solid transparent;
+  border-radius: 0px;
+  line-height: 40px;
+  background-color: #005d83;
+  color: #fff;
+}
+#VitaNav .sticky-right .project-switch:hover {
+  color: #fff;
+}
+#VitaNav .sticky-right .project-switch > img {
+  height: 40px;
+}
+#VitaNav .sticky-right .project-switch > span {
+  margin: 0 10px;
+}
+#VitaNav .sticky-right .project-switch > .ico-burger {
+  color: #fff;
+}
+#VitaNav .nav > li > a {
+  color: #005d83;
+  border-bottom: 2px solid transparent;
+  font-weight: 300;
+  text-transform: uppercase;
+}
+#VitaNav .nav > li > a:hover,
+#VitaNav .nav > li.active > a {
+  text-decoration: none;
+  background-color: transparent;
+  color: #fff;
+  border-color: #fff;
+}
+#VitaNav .nav > li > a:focus {
+  outline: none;
+}
+@media (max-width: 768px) {
+  #VitaNav {
+    background: rgba(255, 255, 255, 0.9);
+  }
+  #VitaNav .navbar-brand {
+    display: none;
+  }
+  #VitaNav .nav > li > a,
+  #VitaNav .nav > li a:hover,
+  #VitaNav .nav > li.active > a {
+    color: #005d83;
+    border: none;
+  }
+  #VitaNav .sticky-right .fa {
+    font-size: 20px;
+  }
+}
+@media (min-width: 768px) {
+  #VitaNav .navbar-nav > li > a {
+    padding-top: 20px;
+    padding-bottom: 18px;
+  }
+}
+/***********************************************************************************
+*  Infoboxen
+***********************************************************************************/
+#Info .info-box {
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: -180px;
+  padding: 15px;
+  text-align: center;
+  position: relative;
+  min-height: 280px;
+  z-index: 21;
+  color: #fff;
+  background-color: rgba(0, 95, 132, 0.753);
+  border: 5px solid rgba(255, 255, 255, 0.4);
+  -webkit-background-clip: padding-box;
+  /* for Safari */
+  background-clip: padding-box;
+  /* for IE9+, Firefox 4+, Opera, Chrome */
+}
+@media (max-width: 991px) {
+  #Info .mb-box {
+    padding: 0;
+  }
+  #Info .info-box {
+    margin-top: 0;
+    padding: 15px;
+    border: 0;
+    /*border-bottom: 2px solid @col-main;*/
+  }
+}
+#Info .info-box p {
+  font-size: 1em;
+  margin-top: 20px;
+}
+#Info .info-box .fa {
+  font-size: 3em;
+  margin-bottom: 10px;
+  font-weight: normal;
+  color: #fff;
+}
+#Info .info-box h1,
+#Info .info-box h2 {
+  margin: 0 0 20px;
+  font-size: 28px;
+  color: #fff;
+  line-height: 30px;
+  letter-spacing: 1px;
+}
+#Info .btn-info-box {
+  font-size: 1.3em;
+  font-weight: bold;
+  text-transform: uppercase;
+  background-color: #fff;
+  color: #005d83;
+  margin: 10px;
+  padding: 0 20px 0 20px;
+  border-radius: 0px;
+  transition: all 0.2s ease-out 0s;
+}
+/***********************************************************************************
+*  ProjectNav
+***********************************************************************************/
+#ProjectNav {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.85);
+  display: none;
+  opacity: 0;
+  overflow: auto;
+  color: #fff;
+  z-index: 1030;
+  transition: opacity 0.3s;
+  -webkit-transition: opacity 0.3s;
+}
+#ProjectNav p {
+  font-size: 18px;
+  font-weight: 500;
+}
+#ProjectNav > .container {
+  position: relative;
+  top: 50%;
+  padding-bottom: 50px;
+  padding-top: 50px;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+}
+@media (max-width: 767px) {
+  #ProjectNav > .container {
+    top: 0;
+    transform: translateY(0);
+    -webkit-transform: translateY(0);
+  }
+}
+#ProjectNav.in {
+  display: block;
+  opacity: 1;
+}
+#ProjectNav h3 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+#ProjectNav img {
+  width: 100%;
+}
+#ProjectNav a {
+  text-decoration: none;
+  font-size: 20px;
+  color: #fff;
+  display: block;
+  margin-bottom: 20px;
+  transition: opacity 0.25s;
+  -webkit-transition: opacity 0.25s;
+}
+#ProjectNav a:hover {
+  opacity: 0.8;
+}
+#ProjectNav .close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  color: #fff;
+  opacity: 1;
+  font-weight: 100;
+  font-size: 40px;
+  text-shadow: none;
+}
+#ProjectNav .close:hover {
+  opacity: 0.6;
+}
+/***********************************************************************************
+*  TEASER
+************************************************************************************/
+.bannercontainer {
+  margin-bottom: 0px;
+  padding: 0;
+  position: relative;
+  width: 100%;
+}
+.bannercontainer .banner {
+  position: relative;
+  width: 100%;
+}
+.bannercontainer .tp-caption.title {
+  color: #fff;
+  font-family: "Roboto", Arial, sans-serif;
+  font-size: 34px;
+  font-weight: 400;
+  line-height: 36px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-align: center;
+  background: transparent;
+  padding: 15px 60px 20px 60px;
+}
+.bannercontainer .tp-caption.title2 {
+  color: #fff;
+  font-family: "Roboto", Arial, sans-serif;
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 36px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-align: center;
+  background: transparent;
+  padding: 15px 60px 20px 60px;
+  text-shadow: 0 2px 5px #000000;
+}
+.bannercontainer .tp-caption.title3 {
+  color: #fff;
+  font-family: "Roboto", Arial, sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  font-style: italic;
+  line-height: 26px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-align: center;
+  background: transparent;
+  padding: 15px 60px 20px 60px;
+  text-shadow: 0 2px 5px #000000;
+}
+.bannercontainer .tp-caption.sfb {
+  font-size: 3em;
+  top: 500px;
+  /* ohne Wirkung */
+}
+.bannercontainer .tp-caption .btn-default {
+  font-size: 1em;
+  font-weight: 200;
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.2);
+  border: 2px solid #ffffff;
+  border-radius: 0;
+  padding: 10px 80px;
+  margin-top: 100px;
+  /* nicht gut */
+  cursor: pointer;
+}
+.bannercontainer .tp-caption .btn-default:hover {
+  background-color: #fff;
+  color: #005d83;
+}
+.modal-backdrop.in {
+  display: none;
+}
+i.feature-icon {
+  width: 75px;
+  height: 76px;
+  background: #2976a4;
+  border-radius: 0;
+  color: #fff;
+  font-size: 40px;
+  line-height: 74px;
+  text-align: center;
+}
+#section-call-info {
+  margin: 0;
+  padding: 0;
+  padding-top: 60px;
+  padding-bottom: 70px;
+  background-color: #005d83;
+  background: rgba(0, 0, 0, 0) linear-gradient(150deg, #005d83 15%, #2a8bad 70%, #7bd3f3 94%) repeat scroll 0 0;
+  text-align: center;
+  color: #fff;
+}
+#section-call-info h1 {
+  margin: 0 0 4px;
+  font-size: 24px;
+  font-weight: 300;
+  color: #fff;
+}
+#section-call-info h2 {
+  margin: 20px 0 4px;
+  font-size: 40px;
+  font-weight: bold;
+  color: #fff;
+}
+#section-call-info a {
+  color: #fff;
+}
+#section-docs {
+  background-color: #f7f8f8;
+  padding: 0;
+  margin-bottom: 0px;
+}
+/***********************************************************************************
+	*	TEAM
+	************************************************************************************/
+.doc-container {
+  background: #f7f8f8;
+}
+.doc-box {
+  position: relative;
+  max-width: 310px;
+  margin: auto;
+  margin-bottom: 0px;
+}
+.doc-box > img {
+  height: auto;
+}
+.doc-box > .overlay {
+  width: 310px;
+  height: 180px;
+  position: relative;
+  margin-top: -116px;
+  background: rgba(255, 255, 255, 0.6);
+  padding: 1px 15px 0px;
+}
+.doc-box > .overlay h4 {
+  line-height: 1.1;
+}
+.doc-box > .overlay h5 {
+  color: #005d83;
+}
+.doc-box > .overlay p {
+  line-height: 1.1;
+}
+/***********************************************************************************
+*  GOOGLE MAP
+***********************************************************************************/
+#Map {
+  width: 100%;
+  height: 360px;
+  margin: 0;
+}
+#Map > iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  pointer-events: none;
+}
+#Map .mapfilter {
+  -webkit-filter: grayscale(100%);
+  -moz-filter: grayscale(100%);
+  -ms-filter: grayscale(100%);
+  -o-filter: grayscale(100%);
+  filter: grayscale(100%);
+}
+/***********************************************************************************
+*  FOOTER
+***********************************************************************************/
+#footer {
+  padding: 50px 0;
+  border-top: 1px solid #e6e6e6;
+  background-color: #E6E6E6;
+  color: #979797;
+  text-align: center;
+}
+#footer a,
+#footer h1,
+#footer h2,
+#footer h3,
+#footer h4,
+#footer h5,
+#footer h6 {
+  color: #005d83;
+}
+#footer p {
+  text-align: center;
+}
+#footer .copyright {
+  padding: 20px 0 0;
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: 400;
+}
+#footer .copyright img {
+  height: 65px;
+  margin-right: 20px;
+}
+#footer .last {
+  margin-bottom: 0;
+  font-size: 12px;
+  font-weight: 100;
+  line-height: 20px;
+}
+@media (max-width: 767px) {
+  #footer .last {
+    margin-bottom: 20px;
+  }
+  #footer .copyright {
+    text-align: center;
+  }
+  #footer .copyright img {
+    display: block;
+    margin: 0 auto 20px;
+  }
+}
